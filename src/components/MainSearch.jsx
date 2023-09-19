@@ -30,7 +30,7 @@ const MainSearch = () => {
           </Col>
           <Col xs={10} className="mx-auto">
             <div className="d-flex justfy-content-between align-items-center">
-              <Form className="flex-grow-1 me-2" onSubmit={handleSubmit}>
+              <Form className="flex-grow-1 me-2" onSubmit={handleSubmit} required>
                 <Form.Control
                   type="search"
                   value={query}
@@ -44,7 +44,7 @@ const MainSearch = () => {
               </Link>
             </div>
           </Col>
-          {loading &&
+          {loading === true ? (
             [...Array(3).keys()].map((el) => (
               <Col xs={10} className="mx-auto mt-3" key={el}>
                 <Card>
@@ -62,12 +62,14 @@ const MainSearch = () => {
                   </Card.Body>
                 </Card>
               </Col>
-            ))}
-          <Col xs={10} className="mx-auto mb-5">
-            {jobs.map((jobData) => (
-              <Job key={jobData._id} data={jobData} />
-            ))}
-          </Col>
+            ))
+          ) : (
+            <Col xs={10} className="mx-auto mb-5">
+              {jobs.map((jobData) => (
+                <Job key={jobData._id} data={jobData} />
+              ))}
+            </Col>
+          )}
         </Row>
       ) : (
         <Row>
