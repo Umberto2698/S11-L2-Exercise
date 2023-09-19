@@ -7,8 +7,8 @@ import { getCompanyJobsAction } from "../redux/actions";
 
 const CompanySearchResults = () => {
   const companyJobs = useSelector((state) => state.jobs.company.content);
-  const error = useSelector((state) => state.jobs.error.content);
-  const loading = useSelector((state) => state.jobs.loading.content);
+  const error = useSelector((state) => state.state.error.content);
+  const loading = useSelector((state) => state.state.loading.content);
 
   const params = useParams();
   const dispatch = useDispatch();

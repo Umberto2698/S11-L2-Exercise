@@ -8,8 +8,8 @@ import { getJobsAction } from "../redux/actions/index";
 const MainSearch = () => {
   const [query, setQuery] = useState("");
   const jobs = useSelector((state) => state.jobs.searched.content);
-  const error = useSelector((state) => state.jobs.error.content);
-  const loading = useSelector((state) => state.jobs.loading.content);
+  const error = useSelector((state) => state.state.error.content);
+  const loading = useSelector((state) => state.state.loading.content);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
